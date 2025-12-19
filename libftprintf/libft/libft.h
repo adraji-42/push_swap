@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 07:49:33 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/18 08:06:19 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/15 09:39:24 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "../ft_printf_data_utils.h"
 
 //	Prevents redefinition conflicts if the standard <limits.h> header
 //		is also included.
@@ -33,7 +34,6 @@
 # endif
 
 //	typedef:
-typedef char	t_bool;
 typedef char	t_signe;
 
 //	struct:
@@ -68,11 +68,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 //	char:
-t_bool	ft_isalpha(int c);
-t_bool	ft_isdigit(int c);
-t_bool	ft_isalnum(int c);
-t_bool	ft_isascii(int c);
-t_bool	ft_isprint(int c);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 

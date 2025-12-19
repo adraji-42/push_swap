@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/18 07:54:14 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/18 07:54:15 by adraji           ###   ########.fr       */
+/*   Created: 2025/10/31 01:09:44 by adraji            #+#    #+#             */
+/*   Updated: 2025/12/14 15:37:33 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	main(int c, char **v)
-{
-	
-}
+int	ft_printf(const char *fms, ...);
+
+#endif

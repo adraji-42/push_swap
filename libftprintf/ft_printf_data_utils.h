@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 16:30:37 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/18 08:05:21 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/17 06:17:51 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define FAULS 0
 # define INT_MAX __INT_MAX__
 # define INT_MIN _SC_INT_MIN
+
+typedef char	t_bool;
 
 typedef struct s_lens_print_data
 {
