@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_limit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/25 10:01:13 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/20 09:50:13 by adraji           ###   ########.fr       */
+/*   Created: 2025/12/20 08:38:14 by adraji            #+#    #+#             */
+/*   Updated: 2025/12/20 12:52:59 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_atoi(const char *nptr)
+#include "ft_parsing.h"
+t_ilimits	ft_atoi_limit(const char *nptr)
 {
-	long	n;
-	t_signe	signe;
+	t_ilimits	n;
+	long		res;
+	int			sign;
 
-	n = 0;
-	signe = PLUS;
-	while (*nptr && ((*nptr == ' ') || (*nptr >= 9 && *nptr <= 13)))
-		nptr++;
+	res = 0;
+	sign = 1;
+	n.overflow = TRUE;
 	if (*nptr == '-' || *nptr == '+')
 	{
 		if (*nptr == '-')
-			signe = MINUS;
+			sign = -1;
 		nptr++;
 	}
-	while (*nptr && ft_isdigit(*nptr))
+	while (*nptr >= '0' && *nptr <= '9')
 	{
-		if (n > LM / 10 || (n == LM / 10 && (*nptr - '0') > LM % 10))
-		{
-			if (signe == PLUS)
-				return (-1);
-			return (0);
-		}
-		n = n * 10 + (*nptr - '0');
+		res = res * 10 + (*nptr - '0');
+		if ((sign == 1 && res > 2147483647)
+			|| (sign == -1 && res > 2147483648))
+			return (n);
 		nptr++;
 	}
-	return ((int)(n * signe));
+	n.num = (int)(res * sign);
+	n.overflow = FALSE;
+	return (n);
 }

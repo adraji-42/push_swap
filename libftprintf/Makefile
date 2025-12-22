@@ -6,7 +6,7 @@
 #    By: adraji <adraji@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/14 11:06:31 by adraji            #+#    #+#              #
-#    Updated: 2025/12/14 11:26:29 by adraji           ###   ########.fr        #
+#    Updated: 2025/12/22 09:37:03 by adraji           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -g -c $< -o $@
 
 bonus: all
 

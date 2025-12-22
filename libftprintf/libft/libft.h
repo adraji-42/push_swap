@@ -6,16 +6,19 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 07:49:33 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/15 09:39:24 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/20 09:51:10 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+// --- HEADER FILE I USED IN LIBFT LIBRARY ---
+
 # include <stdlib.h>
 # include <unistd.h>
-# include "../ft_printf_data_utils.h"
+
+// --- PREVENTS REDEFINITON CONFLICTS IF THE STANDARD <limits.h> HEADER ---
 
 //	Prevents redefinition conflicts if the standard <limits.h> header
 //		is also included.
@@ -33,7 +36,19 @@
 #  define SIZE_MAX __SIZE_MAX__
 # endif
 
+//	Alias for LONG_MAX to comply with the Norminette's 80-column limit
+//		in functions (ft_atoi.c).
+# define LM LONG_MAX
+
+// --- MACROS FOR SIMPLIFY THE CODE ---
+
+# define PLUS 1
+# define MINUS -1
+
+// --- TYPEDEF & STRUCT ---
+
 //	typedef:
+typedef char	t_bool;
 typedef char	t_signe;
 
 //	struct:
@@ -42,6 +57,8 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+// --- FUNCTIONS THAT ARE IN THE LIBRARY ---
 
 //	memory:
 void	*ft_memset(void *s, int c, size_t n);
@@ -68,11 +85,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 //	char:
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
+t_bool	ft_isalpha(int c);
+t_bool	ft_isdigit(int c);
+t_bool	ft_isalnum(int c);
+t_bool	ft_isascii(int c);
+t_bool	ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 

@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 13:58:50 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/17 07:17:51 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/21 12:18:59 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static int	ft_get_flags(const char *fmt, t_flags *f)
 		i++;
 	}
 	if (f->minus)
-		f->zero = FAULS;
+		f->zero = FALSE;
 	if (f->plus)
-		f->space = FAULS;
+		f->space = FALSE;
 	return (i);
 }
 
@@ -51,7 +51,7 @@ static int	ft_get_width(const char *fmt, t_flags *f, va_list args)
 		{
 			f->minus = TRUE;
 			f->width *= -1;
-			f->zero = FAULS;
+			f->zero = FALSE;
 		}
 	}
 	else
@@ -86,7 +86,7 @@ static int	ft_get_precision(const char *fmt, t_flags *f, va_list args)
 				i++;
 		}
 		if (f->precision < 0)
-			f->dot = FAULS;
+			f->dot = FALSE;
 	}
 	return (i);
 }
@@ -110,6 +110,6 @@ int	ft_parse_flags(const char *fmt, t_flags *f, va_list args)
 		pos++;
 	}
 	if (f->dot && ft_strchr("diuxX", f->specifier))
-		f->zero = FAULS;
+		f->zero = FALSE;
 	return (pos);
 }
