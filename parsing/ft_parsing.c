@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 12:58:55 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/22 11:50:16 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/22 15:39:13 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ static t_tab	*ft_creat_tab(char *joined)
 
 	i = 0;
 	tab = ft_malloc(sizeof(t_tab));
-	if (!tab)
-		exit(ft_free(ft_allocation_error));
 	tab->size = 0;
 	while (joined[i])
 	{
@@ -36,8 +34,6 @@ static t_tab	*ft_creat_tab(char *joined)
 	if (tab->size < 2)
 		exit(SUCCESS);
 	tab->tab = ft_malloc(sizeof(int) * tab->size);
-	if (!tab->tab)
-		exit(ft_free(ft_allocation_error));
 	return (tab);
 }
 

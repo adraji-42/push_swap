@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 15:59:46 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/21 12:18:59 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/22 15:38:40 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ char	*ft_strsjoin_check(int size, char **strs)
 	char	*result;
 
 	result = ft_malloc(sizeof(char) * (ft_strs_lens(size, strs) + size));
-	if (!result)
-		exit(ft_allocation_error());
 	re_idx = 0;
 	s_idx = 0;
 	while (s_idx < size)

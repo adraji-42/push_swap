@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 14:10:37 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/22 10:05:00 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/22 15:38:11 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	*ft_malloc(size_t size)
 
 	res = malloc(size);
 	if (!res)
-		return (NULL);
+		exit(ft_free(ft_allocation_error));
 	ft_lstadd_back(get_list(), ft_lstnew(res));
 	return (res);
 }
