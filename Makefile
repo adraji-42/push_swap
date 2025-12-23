@@ -7,14 +7,9 @@ RM			=	rm -f
 PRINTF_DIR	=	libftprintf
 PRINTF		=	$(PRINTF_DIR)/libftprintf.a
 
-SRCS		=	push_swap.c \
-				ft_creat_stack.c \
-				ft_malloc_free.c \
-				ft_print_errors.c \
-				indexing/ft_stack_indexing.c \
-				parsing/ft_atoi_ilimit.c \
-				parsing/ft_parsing.c \
-				parsing/ft_strsjoin_check.c
+SRCS		=	ft_creat_stack.c ft_print_errors.c push_swap.c ft_malloc_free.c \
+				parsing/ft_atoi_ilimit.c parsing/ft_parsing.c parsing/ft_strsjoin_check.c \
+				stack_info/ft_stack_indexing.c stack_info/ft_how_far.c \
 
 OBJS		=	$(SRCS:.c=.o)
 

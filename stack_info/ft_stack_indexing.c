@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 11:25:30 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/22 17:42:16 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/23 08:09:30 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	ft_value_indexing(t_head *head, t_tab *tab)
 	ft_quick_sort(tab->tab, 0, tab->size - 1);
 	while (head)
 	{
-		head->stack_index = ft_binary_search(tab->tab, tab->size, head->value);
+		head->value_index = ft_binary_search(tab->tab, tab->size, head->value);
 		head = head->rear;
 	}
 }

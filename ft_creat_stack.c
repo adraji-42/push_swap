@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 11:06:10 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/22 17:55:32 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/23 08:07:10 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ void	ft_addtop_head(t_stack *stack, t_head *new)
 t_stack	*ft_creat_stack_a(t_tab *tab)
 {
 	t_stack	*a;
-	int		index;
 
-	index = 0;
+	a = ft_malloc(sizeof(t_stack));
+	a->size = 0;
 	a->head = NULL;
-	while (index < tab->size)
-		ft_addtop_head(a, ft_new_head(tab->tab[index++]));
+	while (a->size < tab->size)
+		ft_addtop_head(a, ft_new_head(tab->tab[a->size++]));
 	ft_stack_indexing(a->head);
-	ft_value_indexing(a, tab);
+	ft_value_indexing(a->head, tab);
 	ft_calculate_far(a);
 	free(tab->tab);
 	tab->tab = NULL;

@@ -6,11 +6,26 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 15:59:46 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/22 15:38:40 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/23 08:26:02 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_parsing.h"
+
+t_bool	ft_is_signe(char c)
+{
+	return (c == '-' || c == '+');
+}
+
+t_bool	ft_is_num_spc(char c)
+{
+	return (c == ' ' || ft_isdigit(c));
+}
+
+t_bool	ft_is_valid(char c, char nc)
+{
+	return ((ft_is_num_spc(c)) || (ft_is_signe(c) && ft_isdigit(nc)));
+}
 
 static size_t	ft_strs_lens(int size, char **strs)
 {
@@ -29,7 +44,7 @@ static size_t	ft_strs_lens(int size, char **strs)
 		{
 			if (!hav_num && ft_isdigit(strs[i][j]))
 				hav_num = TRUE;
-			if (!IS_VALID(strs[i][j], strs[i][j + 1]))
+			if (!ft_is_valid(strs[i][j], strs[i][j + 1]))
 				exit(ft_print_error());
 			j++;
 		}

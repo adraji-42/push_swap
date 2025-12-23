@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 10:49:04 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/22 17:55:19 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/22 18:03:33 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_head
 	int				how_far;
 	int				value_index;
 	int				stack_index;
-	int				stack_stack;
 }	t_head;
 
 typedef struct s_stack

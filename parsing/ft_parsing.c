@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 12:58:55 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/22 15:39:13 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/23 08:28:06 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static t_tab	*ft_creat_tab(char *joined)
 			i++;
 		if (joined[i])
 			tab->size++;
-		while (joined[i] && (IS_SIGNE(joined[i]) || ft_isdigit(joined[i])))
+		while (joined[i] && (ft_is_signe(joined[i]) || ft_isdigit(joined[i])))
 			i++;
 	}
 	if (tab->size <= 0)
@@ -57,7 +57,7 @@ static t_tab	*ft_get_tab(char *joined)
 		if (num.overflow)
 			exit(ft_free(ft_print_error));
 		tab->tab[indexj++] = num.num;
-		if (IS_SIGNE(joined[index]))
+		if (ft_is_signe(joined[index]))
 			index++;
 		while (ft_isdigit(joined[index]))
 			index++;
@@ -83,6 +83,7 @@ static void	ft_is_uniq(t_tab *tab)
 		i++;
 	}
 }
+
 t_tab	ft_parsing(int size, char **strs)
 {
 	t_tab	t;
