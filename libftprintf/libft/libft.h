@@ -6,14 +6,14 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 07:49:33 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/20 09:51:10 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 13:21:45 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-// --- HEADER FILE I USED IN LIBFT LIBRARY ---
+// --- REQUIRED LIBRARIES ---
 
 # include <stdlib.h>
 # include <unistd.h>

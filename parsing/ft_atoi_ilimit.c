@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_limit.c                                   :+:      :+:    :+:   */
+/*   ft_atoi_ilimit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 08:38:14 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/20 12:52:59 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 13:43:15 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_parsing.h"
 
-t_ilimits	ft_atoi_limit(const char *nptr)
+t_ilimits	ft_atoi_ilimit(const char *nptr)
 {
 	t_ilimits	n;
 	long		res;

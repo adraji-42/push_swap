@@ -6,26 +6,34 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 10:49:04 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 10:07:24 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 13:46:12 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+// --- REQUIRED LIBRARIES ---
+
 # include <unistd.h>
 # include <stdlib.h>
 # include "libftprintf/ft_printf.h"
 
+// --- STATUS MACROS ---
+
 # define FAILED 1
 # define SUCCESS 0
 
+// --- STRUCTURES FOR STACK MANAGEMENT ---
+
+//  Structure to handle an array of integers and its size.
 typedef struct s_table_of_int
 {
 	int	*tab;
 	int	size;
 }	t_tab;
 
+//  Node structure for the doubly linked list (Stack elements).
 typedef struct s_head
 {
 	struct s_head	*top;
@@ -36,6 +44,7 @@ typedef struct s_head
 	int				stack_index;
 }	t_head;
 
+//  Main stack structure containing the pointer to the head and total size.
 typedef struct s_stack
 {
 	t_head	*head;

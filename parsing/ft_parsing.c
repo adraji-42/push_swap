@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 12:58:55 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/23 08:28:06 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 13:43:15 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static t_tab	*ft_get_tab(char *joined)
 			index++;
 		if (!joined[index])
 			break ;
-		num = ft_atoi_limit(&joined[index]);
+		num = ft_atoi_ilimit(&joined[index]);
 		if (num.overflow)
 			exit(ft_free(ft_print_error));
 		tab->tab[indexj++] = num.num;

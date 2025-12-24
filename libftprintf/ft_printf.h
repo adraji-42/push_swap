@@ -1,29 +1,27 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 01:09:44 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/21 12:24:04 by adraji           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+// --- INTERNAL LIBRARIES AND DEPENDENCIES ---
+
 # include "libft/libft.h"
+
+// --- MACROS AND CONSTANTS ---
 
 # define TRUE 1
 # define FALSE 0
 
+//  Ensures INT_MAX is defined for limit checking.
 # ifndef INT_MAX
 #  define INT_MAX __INT_MAX__
 # endif
 
+// --- TYPE DEFINITIONS ---
+
 typedef char	t_bool;
 
+// --- STRUCTURES FOR PRINTF LOGIC ---
+
+//  Structure to manage length calculations: data, padding, and zeros.
 typedef struct s_lens_print_data
 {
 	int	len_data;
@@ -32,6 +30,7 @@ typedef struct s_lens_print_data
 	int	total_content_len;
 }	t_lens;
 
+//  Structure to track indices and total printed characters.
 typedef struct s_print_count
 {
 	int	index;
@@ -39,12 +38,14 @@ typedef struct s_print_count
 	int	total_printed;
 }	t_vars;
 
+//  Wrapper structure to satisfy Norminette line limits in functions.
 typedef struct s_norminette
 {
 	t_lens	len;
 	t_vars	var;
 }	t_levas;
 
+//  Structure to store formatting flags, width, and precision.
 typedef struct s_flags
 {
 	t_bool	minus;
@@ -57,6 +58,8 @@ typedef struct s_flags
 	long	precision;
 	char	specifier;
 }	t_flags;
+
+// --- MAIN PRINTF FUNCTION ---
 
 int	ft_printf(const char *fms, ...);
 
