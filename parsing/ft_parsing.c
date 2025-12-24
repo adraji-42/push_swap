@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 12:58:55 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 13:43:15 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 14:58:29 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ t_tab	ft_parsing(int size, char **strs)
 	joined = ft_strsjoin_check(size, strs);
 	tab = ft_get_tab(joined);
 	ft_is_uniq(tab);
+	// ft_is_sorted();
 	t.size = tab->size;
 	t.tab = malloc(sizeof(int) * t.size);
 	if (!t.tab)

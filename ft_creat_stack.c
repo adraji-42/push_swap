@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 11:06:10 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 10:09:14 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 15:00:31 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_stack	*ft_creat_stack(t_tab *tab)
 	stack->size = 0;
 	stack->head = NULL;
 	if (!tab)
-		return ;
+		return (stack);
 	while (stack->size < tab->size)
 		ft_addtop_head(stack, ft_new_head(tab->tab[stack->size++]));
 	ft_stack_indexing(stack->head);

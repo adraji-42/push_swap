@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 10:49:04 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 13:46:12 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 15:07:39 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_addtop_head(t_stack *stack, t_head *new);
 void	ft_value_indexing(t_head *head, t_tab *tab);
 
 void	ft_pb(t_stack *a, t_stack *b);
-void	ft_pa(t_stack *b, t_stack *a);
+void	ft_pa(t_stack *a, t_stack *b);
 void	ft_sa(t_stack *a);
 void	ft_sb(t_stack *b);
 void	ft_ss(t_stack *a, t_stack *b);

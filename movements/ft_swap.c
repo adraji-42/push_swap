@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 10:11:46 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 10:28:15 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 14:40:26 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,6 @@ static void	ft_swap(t_stack *stack)
 	second->top = NULL;
 	first->top = second;
 	stack->head = second;
-}
-
-static void	ft_swap(t_stack *stack)
-{
-	t_head	*first;
-	t_head	*second;
-
-	if (!stack || !stack->head || !stack->head->rear)
-		return ;
-	first = stack->head;
-	second = stack->head->rear;
-	first->rear = second->rear;
-	first->top = second;
-	second->top = NULL;
 }
 
 void	ft_sa(t_stack *a)

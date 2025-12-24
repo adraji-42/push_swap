@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 08:09:03 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 10:26:34 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 15:07:45 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	ft_push(t_stack *src, t_stack *dest)
 	dest->size++;
 }
 
-void	ft_pa(t_stack *b, t_stack *a)
+void	ft_pa(t_stack *a, t_stack *b)
 {
 	ft_push(b, a);
 	ft_printf("pa\n");

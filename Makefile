@@ -1,38 +1,54 @@
-NAME		=	push_swap
+NAME			= push_swap
+CC				= cc
+CFLAGS			= -g -Wall -Wextra -Werror
+RM				= rm -f
 
-CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror
-RM			=	rm -f
+LIB_DIR			= libftprintf
+MOV_DIR			= movements
+PARS_DIR		= parsing
+STK_DIR			= stack_info
 
-PRINTF_DIR	=	libftprintf
-PRINTF		=	$(PRINTF_DIR)/libftprintf.a
+LIBFTPRINTF		= $(LIB_DIR)/libftprintf.a
 
-SRCS		=	ft_creat_stack.c ft_print_errors.c push_swap.c ft_malloc_free.c \
-				parsing/ft_atoi_ilimit.c parsing/ft_parsing.c parsing/ft_strsjoin_check.c \
-				stack_info/ft_stack_indexing.c stack_info/ft_how_far.c \
+MAIN_FILES		= ft_malloc_free.c \
+				  ft_push_swap.c \
+				  ft_creat_stack.c \
+				  ft_print_errors.c
 
-OBJS		=	$(SRCS:.c=.o)
+MOV_FILES		= $(MOV_DIR)/ft_rotate.c \
+				  $(MOV_DIR)/ft_push.c \
+				  $(MOV_DIR)/ft_reverse_rotate.c \
+				  $(MOV_DIR)/ft_swap.c
 
+PARS_FILES		= $(PARS_DIR)/ft_atoi_ilimit.c \
+				  $(PARS_DIR)/ft_parsing.c \
+				  $(PARS_DIR)/ft_strsjoin_check.c
 
-%.o: %.c #$(HEADER)
-	$(CC) $(CFLAGS) -g -c $< -o $@
+STK_FILES		= $(STK_DIR)/ft_how_far.c \
+				  $(STK_DIR)/ft_stack_indexing.c
 
-all:		$(NAME)
+SRCS			= $(MAIN_FILES) $(MOV_FILES) $(PARS_FILES) $(STK_FILES)
+OBJS			= $(SRCS:.c=.o)
 
-$(NAME):	$(OBJS) $(PRINTF)
-			$(CC) $(CFLAGS) -g $(OBJS) $(PRINTF) -o $(NAME)
+all:			$(NAME)
 
-$(PRINTF):
-			make -C $(PRINTF_DIR)
+$(NAME):		$(OBJS) $(LIBFTPRINTF)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFTPRINTF) -o $(NAME)
+
+$(LIBFTPRINTF):
+	$(MAKE) -C $(LIB_DIR)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-			make -C $(PRINTF_DIR) clean
-			$(RM) $(OBJS)
+	$(RM) $(OBJS)
+	$(MAKE) -C $(LIB_DIR) clean
 
-fclean:		clean
-			make -C $(PRINTF_DIR) fclean
-			$(RM) $(NAME)
+fclean:			clean
+	$(RM) $(NAME)
+	$(MAKE) -C $(LIB_DIR) fclean
 
-re:			fclean all
+re:				fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:			all clean fclean re
