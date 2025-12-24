@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 08:09:03 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 15:07:45 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 16:26:35 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 static void	ft_push(t_stack *src, t_stack *dest)
 {
-	t_head	*node_push;
+	t_node	*node_to_push;
 
-	if (!src || !src->head)
+	if (!src || !src->top)
 		return ;
-	node_push = src->head;
-	src->head = src->head->rear;
-	if (src->head)
-		src->head->top = NULL;
-	node_push->rear = dest->head;
-	if (dest->head)
-		dest->head->top = node_push;
-	dest->head = node_push;
-	dest->head->top = NULL;
+	node_to_push = src->top;
+	src->top = src->top->next;
+	if (src->top)
+		src->top->prev = NULL;
+	node_to_push->next = dest->top;
+	if (dest->top)
+		dest->top->prev = node_to_push;
+	dest->top = node_to_push;
+	dest->top->prev = NULL;
 	src->size--;
 	dest->size++;
 }

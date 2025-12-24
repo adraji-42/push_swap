@@ -6,27 +6,27 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 12:27:48 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 10:09:52 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 16:26:09 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-void	ft_calculate_far(t_stack *stack)
+void	ft_calculate_node_distances(t_stack *stack)
 {
-	t_head	*tmp;
+	t_node	*tmp;
 	int		mid;
 
-	if (!stack->head)
+	if (!stack->top)
 		return ;
 	mid = stack->size / 2;
-	tmp = stack->head;
+	tmp = stack->top;
 	while (tmp)
 	{
-		if (tmp->stack_index <= mid)
-			tmp->how_far = tmp->stack_index;
+		if (tmp->pos <= mid)
+			tmp->target_dist = tmp->pos;
 		else
-			tmp->how_far = tmp->stack_index - stack->size;
-		tmp = tmp->rear;
+			tmp->target_dist = tmp->pos - stack->size;
+		tmp = tmp->next;
 	}
 }

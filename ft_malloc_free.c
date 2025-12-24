@@ -1,49 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_malloc_free.c                                   :+:      :+:    :+:   */
+/*   ft_safe_malloc_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 14:10:37 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 15:40:37 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 15:56:43 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-static t_list	**get_list(void)
+static t_list	**ft_get_mem_manager(void)
 {
-	static t_list	*list;
+	static t_list	*mem_list;
 
-	return (&list);
+	return (&mem_list);
 }
 
-void	ft_del(void *ptr)
+void	ft_free_content(void *content)
 {
-	free(ptr);
+	free(content);
 }
 
-t_bool	ft_free(t_bool (*print)(void))
+t_bool	ft_cleanup_memory(t_bool (*error_handler)(void))
 {
-	t_list	**head;
+	t_list	**mem_head;
 
-	head = get_list();
-	ft_lstclear(head, ft_del);
-	free(*head);
-	*head = NULL;
-	if (!print || !print())
+	mem_head = ft_get_mem_manager();
+	ft_lstclear(mem_head, ft_free_content);
+	*mem_head = NULL;
+	if (!error_handler || !error_handler())
 		return (SUCCESS);
 	return (FAILED);
 }
 
-void	*ft_malloc(size_t size)
+void	*ft_safe_malloc(size_t size)
 {
-	void	*res;
+	void	*new_ptr;
 
-	res = malloc(size);
-	if (!res)
-		exit(ft_free(ft_allocation));
-	ft_lstadd_back(get_list(), ft_lstnew(res));
-	return (res);
+	new_ptr = malloc(size);
+	if (!new_ptr)
+		exit(ft_cleanup_memory(ft_handle_alloc_error));
+	ft_lstadd_back(ft_get_mem_manager(), ft_lstnew(new_ptr));
+	return (new_ptr);
 }

@@ -10,7 +10,7 @@ STK_DIR			= stack_info
 
 LIBFTPRINTF		= $(LIB_DIR)/libftprintf.a
 
-MAIN_FILES		= ft_malloc_free.c \
+MAIN_FILES		= ft_safe_malloc_free.c \
 				  ft_push_swap.c \
 				  ft_creat_stack.c \
 				  ft_exit_print.c

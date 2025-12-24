@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 16:44:45 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 13:43:15 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 16:29:55 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 //  Structure to return both the converted number and an overflow status.
 typedef struct s_int_limits
 {
-	long	num;
+	int		num;
 	t_bool	overflow;
 }	t_ilimits;
 

@@ -6,22 +6,23 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 10:44:03 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 15:12:16 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 16:31:30 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	main(int c, char **v)
+int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_tab	tab;
+	t_array	array;
 
-	if (c < 2)
+	if (argc < 2)
 		return (0);
-	tab = ft_parsing(c - 1, &v[1]);
-	a = ft_creat_stack(&tab);
-	b = ft_creat_stack(NULL);
+	array = ft_parsing(argc - 1, &argv[1]);
+	a = ft_init_stack_from_array(&array);
+	b = ft_init_stack_from_array(NULL);
+	free(array.values);
 	return (0);
 }

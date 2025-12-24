@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 11:59:56 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 12:33:40 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 16:27:48 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,18 @@
 
 static void	ft_reverse_rotate(t_stack *stack)
 {
-	t_head	*rear;
-	t_head	*penultimate;
+	t_node	*last;
 
-	if (!stack || !stack->head || !stack->head->rear)
+	if (!stack || !stack->top || !stack->top->next)
 		return ;
-	rear = stack->head;
-	while (rear->rear)
-		rear = rear->rear;
-	penultimate = rear->top;
-	rear->rear = stack->head;
-	stack->head->top = rear;
-	penultimate->rear = NULL;
-	stack->head = rear;
-	rear->top = NULL;
+	last = stack->top;
+	while (last->next)
+		last = last->next;
+	last->prev->next = NULL;
+	last->next = stack->top;
+	last->prev = NULL;
+	stack->top->prev = last;
+	stack->top = last;
 }
 
 void	ft_rra(t_stack *a)

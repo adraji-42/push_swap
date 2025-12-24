@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 15:59:46 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 15:29:44 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 15:59:54 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ static size_t	ft_strs_lens(int size, char **strs)
 			if (!hav_num && ft_isdigit(strs[i][j]))
 				hav_num = TRUE;
 			if (!ft_is_valid(strs[i][j], strs[i][j + 1]))
-				exit(ft_error());
+				exit(ft_print_generic_error());
 			j++;
 		}
 		if (!hav_num)
-			exit(ft_error());
+			exit(ft_print_generic_error());
 		total_size += j;
 		i++;
 	}
@@ -63,7 +63,7 @@ char	*ft_strsjoin_check(int size, char **strs)
 	size_t	re_idx;
 	char	*result;
 
-	result = ft_malloc(sizeof(char) * (ft_strs_lens(size, strs) + size));
+	result = ft_safe_malloc(sizeof(char) * (ft_strs_lens(size, strs) + size));
 	re_idx = 0;
 	s_idx = 0;
 	while (s_idx < size)

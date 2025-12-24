@@ -6,21 +6,21 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 11:25:30 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 15:29:44 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 16:31:52 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-void	ft_stack_indexing(t_head *head)
+void	ft_set_stack_indices(t_node *top)
 {
 	int	i;
 
 	i = 0;
-	while (head)
+	while (top)
 	{
-		head->stack_index = i++;
-		head = head->rear;
+		top->pos = i++;
+		top = top->next;
 	}
 }
 
@@ -70,15 +70,15 @@ static int	ft_binary_search(int *tab, int size, int target)
 		else
 			high = mid - 1;
 	}
-	exit(ft_free(ft_error));
+	exit(ft_cleanup_memory(ft_print_generic_error));
 }
 
-void	ft_value_indexing(t_head *head, t_tab *tab)
+void	ft_set_value_ranks(t_node *top, t_array *array)
 {
-	ft_quick_sort(tab->tab, 0, tab->size - 1);
-	while (head)
+	ft_quick_sort(array->values, 0, array->size - 1);
+	while (top)
 	{
-		head->value_index = ft_binary_search(tab->tab, tab->size, head->value);
-		head = head->rear;
+		top->rank = ft_binary_search(array->values, array->size, top->value);
+		top = top->next;
 	}
 }

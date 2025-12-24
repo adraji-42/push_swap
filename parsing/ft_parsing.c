@@ -6,113 +6,113 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 12:58:55 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 15:41:49 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 16:32:24 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_parsing.h"
 
-static t_tab	*ft_creat_tab(char *joined)
+static t_array	*ft_create_array_struct(char *joined)
 {
 	int		i;
-	t_tab	*tab;
+	t_array	*array;
 
 	i = 0;
-	tab = ft_malloc(sizeof(t_tab));
-	tab->size = 0;
+	array = ft_safe_malloc(sizeof(t_array));
+	array->size = 0;
 	while (joined[i])
 	{
 		while (joined[i] && joined[i] == ' ')
 			i++;
 		if (joined[i])
-			tab->size++;
+			array->size++;
 		while (joined[i] && (ft_is_signe(joined[i]) || ft_isdigit(joined[i])))
 			i++;
 	}
-	if (tab->size <= 0)
-		exit(ft_free(ft_error));
-	if (tab->size < 2)
+	if (array->size <= 0)
+		exit(ft_cleanup_memory(ft_print_generic_error));
+	if (array->size < 2)
 		exit(SUCCESS);
-	tab->tab = ft_malloc(sizeof(int) * tab->size);
-	return (tab);
+	array->values = ft_safe_malloc(sizeof(int) * array->size);
+	return (array);
 }
 
-static t_tab	*ft_get_tab(char *joined)
+static t_array	*ft_fill_array(char *joined)
 {
+	int			i;
+	int			j;
 	t_ilimits	num;
-	t_tab		*tab;
-	int			index;
-	int			indexj;
+	t_array		*array;
 
-	index = 0;
-	indexj = 0;
-	tab = ft_creat_tab(joined);
-	while (joined[index])
+	i = 0;
+	j = 0;
+	array = ft_create_array_struct(joined);
+	while (joined[i])
 	{
-		while (joined[index] == ' ')
-			index++;
-		if (!joined[index])
+		while (joined[i] == ' ')
+			i++;
+		if (!joined[i])
 			break ;
-		num = ft_atoi_ilimit(&joined[index]);
+		num = ft_atoi_ilimit(&joined[i]);
 		if (num.overflow)
-			exit(ft_free(ft_error));
-		tab->tab[indexj++] = num.num;
-		if (ft_is_signe(joined[index]))
-			index++;
-		while (ft_isdigit(joined[index]))
-			index++;
+			exit(ft_cleanup_memory(ft_print_generic_error));
+		array->values[j++] = num.num;
+		if (ft_is_signe(joined[i]))
+			i++;
+		while (ft_isdigit(joined[i]))
+			i++;
 	}
-	return (tab);
+	return (array);
 }
 
-static void	ft_is_uniq(t_tab *tab)
+static void	ft_check_duplicates(t_array *array)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < tab->size)
+	while (i < array->size)
 	{
 		j = i + 1;
-		while (j < tab->size)
+		while (j < array->size)
 		{
-			if (tab->tab[i] == tab->tab[j])
-				exit(ft_free(ft_error));
+			if (array->values[i] == array->values[j])
+				exit(ft_cleanup_memory(ft_print_generic_error));
 			j++;
 		}
 		i++;
 	}
 }
 
-static void	ft_is_sorted(t_tab *tab)
+static void	ft_check_if_sorted(t_array *array)
 {
-	int	index;
+	int	i;
 
-	index = 0;
-	while (index < tab->size - 1)
+	i = 0;
+	while (i < array->size - 1)
 	{
-		if (tab->tab[index] > tab->tab[index + 1])
+		if (array->values[i] > array->values[i + 1])
 			return ;
-		index++;
+		i++;
 	}
-	exit(ft_free(ft_sorted));
+	exit(ft_cleanup_memory(ft_print_sorted_status));
 }
 
-t_tab	ft_parsing(int size, char **strs)
+t_array	ft_parsing(int size, char **strs)
 {
-	t_tab	t;
-	t_tab	*tab;
+	t_array	res;
+	t_array	*tmp;
 	char	*joined;
 
 	joined = ft_strsjoin_check(size, strs);
-	tab = ft_get_tab(joined);
-	ft_is_uniq(tab);
-	ft_is_sorted(tab);
-	t.size = tab->size;
-	t.tab = malloc(sizeof(int) * t.size);
-	if (!t.tab)
-		exit(ft_free(ft_allocation));
-	ft_memcpy(t.tab, tab->tab, sizeof(int) * t.size);
-	ft_free(NULL);
-	return (t);
+	tmp = ft_fill_array(joined);
+	ft_check_duplicates(tmp);
+	ft_check_if_sorted(tmp);
+	res.size = tmp->size;
+	res.values = malloc(sizeof(int) * res.size);
+	if (!res.values)
+		exit(ft_cleanup_memory(ft_handle_alloc_error));
+	ft_memcpy(res.values, tmp->values, sizeof(int) * res.size);
+	ft_cleanup_memory(NULL);
+	return (res);
 }

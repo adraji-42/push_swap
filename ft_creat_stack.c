@@ -6,61 +6,59 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 11:06:10 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 15:23:49 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 16:31:36 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-t_head	*ft_new_head(int value)
+t_node	*ft_create_node(int value)
 {
-	t_head	*new;
+	t_node	*new_node;
 
-	new = ft_malloc(sizeof(t_head));
-	new->rear = NULL;
-	new->top = NULL;
-	new->value = value;
-	new->how_far = 1000;
-	new->stack_index = -1;
-	new->value_index = -1;
-	return (new);
+	new_node = ft_safe_malloc(sizeof(t_node));
+	new_node->prev = NULL;
+	new_node->next = NULL;
+	new_node->value = value;
+	new_node->target_dist = 1000;
+	new_node->pos = -1;
+	new_node->rank = -1;
+	return (new_node);
 }
 
-void	ft_addtop_head(t_stack *stack, t_head *new)
+void	ft_stack_push_node(t_stack *stack, t_node *new_node)
 {
-	if (!new)
+	if (!new_node)
 		return ;
-	if (!stack->head)
+	if (!stack->top)
 	{
-		stack->head = new;
+		stack->top = new_node;
 		return ;
 	}
-	new->rear = stack->head;
-	stack->head->top = new;
-	stack->head = new;
+	new_node->next = stack->top;
+	stack->top->prev = new_node;
+	stack->top = new_node;
 }
 
-t_stack	*ft_creat_stack(t_tab *tab)
+t_stack	*ft_init_stack_from_array(t_array *array)
 {
 	t_stack	*stack;
-	int		index;
+	int		idx;
 
-	stack = ft_malloc(sizeof(t_stack));
+	stack = ft_safe_malloc(sizeof(t_stack));
 	stack->size = 0;
-	stack->head = NULL;
-	if (!tab || tab->size == 0)
+	stack->top = NULL;
+	if (!array)
 		return (stack);
-	index = tab->size - 1;
-	while (index >= 0)
+	idx = array->size - 1;
+	while (idx >= 0)
 	{
-		ft_addtop_head(stack, ft_new_head(tab->tab[index]));
+		ft_stack_push_node(stack, ft_create_node(array->values[idx]));
 		stack->size++;
-		index--;
+		idx--;
 	}
-	ft_stack_indexing(stack->head);
-	ft_value_indexing(stack->head, tab);
-	ft_calculate_far(stack);
-	free(tab->tab);
-	tab->tab = NULL;
+	ft_set_stack_indices(stack->top);
+	ft_set_value_ranks(stack->top, array);
+	ft_calculate_node_distances(stack);
 	return (stack);
 }
