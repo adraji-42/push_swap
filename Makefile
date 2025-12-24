@@ -3,32 +3,36 @@ CC				= cc
 CFLAGS			= -g -Wall -Wextra -Werror
 RM				= rm -f
 
+# --- DIRECTORIES ---
 LIB_DIR			= libftprintf
-MOV_DIR			= movements
+OPS_DIR			= operations
 PARS_DIR		= parsing
-STK_DIR			= stack_info
+STK_DIR			= stack_utils
 
 LIBFTPRINTF		= $(LIB_DIR)/libftprintf.a
 
-MAIN_FILES		= ft_safe_malloc_free.c \
+# --- SOURCE FILES ---
+MAIN_FILES		= ft_mem_manager.c \
 				  ft_push_swap.c \
-				  ft_creat_stack.c \
-				  ft_exit_print.c
+				  ft_stack_init.c \
+				  ft_error_utils.c
 
-MOV_FILES		= $(MOV_DIR)/ft_rotate.c \
-				  $(MOV_DIR)/ft_push.c \
-				  $(MOV_DIR)/ft_reverse_rotate.c \
-				  $(MOV_DIR)/ft_swap.c
+OPS_FILES		= $(OPS_DIR)/ft_rotate.c \
+				  $(OPS_DIR)/ft_push.c \
+				  $(OPS_DIR)/ft_reverse_rotate.c \
+				  $(OPS_DIR)/ft_swap.c
 
 PARS_FILES		= $(PARS_DIR)/ft_atoi_ilimit.c \
 				  $(PARS_DIR)/ft_parsing.c \
 				  $(PARS_DIR)/ft_strsjoin_check.c
 
-STK_FILES		= $(STK_DIR)/ft_how_far.c \
+STK_FILES		= $(STK_DIR)/ft_stack_analysis.c \
 				  $(STK_DIR)/ft_stack_indexing.c
 
-SRCS			= $(MAIN_FILES) $(MOV_FILES) $(PARS_FILES) $(STK_FILES)
+SRCS			= $(MAIN_FILES) $(OPS_FILES) $(PARS_FILES) $(STK_FILES)
 OBJS			= $(SRCS:.c=.o)
+
+# --- RULES ---
 
 all:			$(NAME)
 

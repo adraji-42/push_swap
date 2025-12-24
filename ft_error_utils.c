@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap.c                                     :+:      :+:    :+:   */
+/*   ft_error_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/20 10:44:03 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 16:38:20 by adraji           ###   ########.fr       */
+/*   Created: 2025/12/20 13:24:23 by adraji            #+#    #+#             */
+/*   Updated: 2025/12/24 16:38:28 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	main(int argc, char **argv)
+t_bool	ft_handle_alloc_error(void)
 {
-	t_stack	*a;
-	t_stack	*b;
-	t_array	array;
+	ft_putstr_fd("Error:\n\tFailed allocation.", 2);
+	return (FAILED);
+}
 
-	if (argc < 2)
-		return (0);
-	array = ft_parsing(argc - 1, &argv[1]);
-	a = ft_init_stack_from_array(&array);
-	b = ft_init_stack_from_array(NULL);
-	free(array.values);
-	return (0);
+t_bool	ft_print_generic_error(void)
+{
+	ft_putstr_fd("Error\n", 2);
+	return (FAILED);
+}
+
+t_bool	ft_print_sorted_status(void)
+{
+	ft_putstr_fd("It is arranged\n", 1);
+	return (SUCCESS);
 }
