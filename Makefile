@@ -13,7 +13,7 @@ LIBFTPRINTF		= $(LIB_DIR)/libftprintf.a
 MAIN_FILES		= ft_malloc_free.c \
 				  ft_push_swap.c \
 				  ft_creat_stack.c \
-				  ft_print_errors.c
+				  ft_exit_print.c
 
 MOV_FILES		= $(MOV_DIR)/ft_rotate.c \
 				  $(MOV_DIR)/ft_push.c \

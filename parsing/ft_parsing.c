@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 12:58:55 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 14:58:29 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 15:41:49 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static t_tab	*ft_creat_tab(char *joined)
 			i++;
 	}
 	if (tab->size <= 0)
-		exit(ft_free(ft_print_error));
+		exit(ft_free(ft_error));
 	if (tab->size < 2)
 		exit(SUCCESS);
 	tab->tab = ft_malloc(sizeof(int) * tab->size);
@@ -55,7 +55,7 @@ static t_tab	*ft_get_tab(char *joined)
 			break ;
 		num = ft_atoi_ilimit(&joined[index]);
 		if (num.overflow)
-			exit(ft_free(ft_print_error));
+			exit(ft_free(ft_error));
 		tab->tab[indexj++] = num.num;
 		if (ft_is_signe(joined[index]))
 			index++;
@@ -77,11 +77,25 @@ static void	ft_is_uniq(t_tab *tab)
 		while (j < tab->size)
 		{
 			if (tab->tab[i] == tab->tab[j])
-				exit(ft_free(ft_print_error));
+				exit(ft_free(ft_error));
 			j++;
 		}
 		i++;
 	}
+}
+
+static void	ft_is_sorted(t_tab *tab)
+{
+	int	index;
+
+	index = 0;
+	while (index < tab->size - 1)
+	{
+		if (tab->tab[index] > tab->tab[index + 1])
+			return ;
+		index++;
+	}
+	exit(ft_free(ft_sorted));
 }
 
 t_tab	ft_parsing(int size, char **strs)
@@ -93,11 +107,11 @@ t_tab	ft_parsing(int size, char **strs)
 	joined = ft_strsjoin_check(size, strs);
 	tab = ft_get_tab(joined);
 	ft_is_uniq(tab);
-	// ft_is_sorted();
+	ft_is_sorted(tab);
 	t.size = tab->size;
 	t.tab = malloc(sizeof(int) * t.size);
 	if (!t.tab)
-		exit(ft_free(ft_allocation_error));
+		exit(ft_free(ft_allocation));
 	ft_memcpy(t.tab, tab->tab, sizeof(int) * t.size);
 	ft_free(NULL);
 	return (t);

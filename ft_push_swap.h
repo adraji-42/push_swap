@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 10:49:04 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 15:07:39 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 15:33:17 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ typedef struct s_stack
 	t_head	*head;
 	int		size;
 }	t_stack;
-
-int		ft_print_error(void);
+t_bool	ft_sorted(void);
+t_bool	ft_error(void);
+t_bool	ft_allocation(void);
 void	*ft_malloc(size_t size);
 t_head	*ft_new_head(int value);
-int		ft_free(int (*print)(void));
-int		ft_allocation_error(void);
+t_bool	ft_free(t_bool (*print)(void));
 t_stack	*ft_creat_stack(t_tab *tab);
 void	ft_stack_indexing(t_head *head);
 void	ft_calculate_far(t_stack *stack);

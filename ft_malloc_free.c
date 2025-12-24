@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 14:10:37 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 10:09:14 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 15:40:37 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_del(void *ptr)
 	free(ptr);
 }
 
-int	ft_free(int (*print)(void))
+t_bool	ft_free(t_bool (*print)(void))
 {
 	t_list	**head;
 
@@ -32,9 +32,8 @@ int	ft_free(int (*print)(void))
 	ft_lstclear(head, ft_del);
 	free(*head);
 	*head = NULL;
-	if (!print)
+	if (!print || !print())
 		return (SUCCESS);
-	print();
 	return (FAILED);
 }
 
@@ -44,7 +43,7 @@ void	*ft_malloc(size_t size)
 
 	res = malloc(size);
 	if (!res)
-		exit(ft_free(ft_allocation_error));
+		exit(ft_free(ft_allocation));
 	ft_lstadd_back(get_list(), ft_lstnew(res));
 	return (res);
 }

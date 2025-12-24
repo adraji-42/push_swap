@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 11:25:30 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 10:09:48 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 15:29:44 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static int	ft_binary_search(int *tab, int size, int target)
 		else
 			high = mid - 1;
 	}
-	exit(ft_free(ft_print_error));
+	exit(ft_free(ft_error));
 }
 
 void	ft_value_indexing(t_head *head, t_tab *tab)

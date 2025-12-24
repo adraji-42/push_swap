@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 15:59:46 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/23 08:26:02 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 15:29:44 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ static size_t	ft_strs_lens(int size, char **strs)
 			if (!hav_num && ft_isdigit(strs[i][j]))
 				hav_num = TRUE;
 			if (!ft_is_valid(strs[i][j], strs[i][j + 1]))
-				exit(ft_print_error());
+				exit(ft_error());
 			j++;
 		}
 		if (!hav_num)
-			exit(ft_print_error());
+			exit(ft_error());
 		total_size += j;
 		i++;
 	}
