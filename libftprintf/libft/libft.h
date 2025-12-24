@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 07:49:33 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 16:07:06 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 16:41:18 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,6 @@
 # ifndef SIZE_MAX
 #  define SIZE_MAX __SIZE_MAX__
 # endif
-
-//	Alias for LONG_MAX to comply with the Norminette's 80-column limit
-//		in functions (ft_atoi.c).
-# define LM LONG_MAX
 
 // --- MACROS FOR SIMPLIFY THE CODE ---
 

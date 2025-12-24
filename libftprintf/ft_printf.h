@@ -15,10 +15,6 @@
 #  define INT_MAX __INT_MAX__
 # endif
 
-// --- TYPE DEFINITIONS ---
-
-typedef char	t_bool;
-
 // --- STRUCTURES FOR PRINTF LOGIC ---
 
 //  Structure to manage length calculations: data, padding, and zeros.
