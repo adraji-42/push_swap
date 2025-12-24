@@ -6,14 +6,14 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 16:44:45 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/23 08:38:39 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 10:09:24 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PARSING_H
 # define FT_PARSING_H
 
-# include "../push_swap.h"
+# include "../ft_push_swap.h"
 
 // --- PREVENTS REDEFINITON CONFLICTS IF THE STANDARD <limits.h> HEADER ---
 

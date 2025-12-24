@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_errors.c                                  :+:      :+:    :+:   */
+/*    ft_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/20 13:24:23 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 10:09:14 by adraji           ###   ########.fr       */
+/*   Created: 2025/12/24 10:15:24 by adraji            #+#    #+#             */
+/*   Updated: 2025/12/24 10:23:20 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	ft_allocation_error(void)
+static void	ft_rotate(t_stack *stack)
 {
-	ft_putstr_fd("Error:\n\tFaild allocation.", 2);
-	return (FAILED);
-}
+	t_head	*rear;
+	t_head	*second;
 
-int	ft_print_error(void)
-{
-	ft_putstr_fd("Error\n", 2);
-	return (FAILED);
+	if (!stack->head)
+		return ;
+	rear = stack->head;
+	second = stack->head->rear;
+	while (rear->rear)
+		rear = rear->rear;
+	second
 }

@@ -6,11 +6,11 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 11:06:10 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/23 08:07:10 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 10:09:14 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_push_swap.h"
 
 t_head	*ft_new_head(int value)
 {
@@ -40,19 +40,21 @@ void	ft_addtop_head(t_stack *stack, t_head *new)
 	stack->head = new;
 }
 
-t_stack	*ft_creat_stack_a(t_tab *tab)
+t_stack	*ft_creat_stack(t_tab *tab)
 {
-	t_stack	*a;
+	t_stack	*stack;
 
-	a = ft_malloc(sizeof(t_stack));
-	a->size = 0;
-	a->head = NULL;
-	while (a->size < tab->size)
-		ft_addtop_head(a, ft_new_head(tab->tab[a->size++]));
-	ft_stack_indexing(a->head);
-	ft_value_indexing(a->head, tab);
-	ft_calculate_far(a);
+	stack = ft_malloc(sizeof(t_stack));
+	stack->size = 0;
+	stack->head = NULL;
+	if (!tab)
+		return ;
+	while (stack->size < tab->size)
+		ft_addtop_head(stack, ft_new_head(tab->tab[stack->size++]));
+	ft_stack_indexing(stack->head);
+	ft_value_indexing(stack->head, tab);
+	ft_calculate_far(stack);
 	free(tab->tab);
 	tab->tab = NULL;
-	return (a);
+	return (stack);
 }

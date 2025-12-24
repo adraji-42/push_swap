@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 10:44:03 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/23 08:38:08 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 10:27:02 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_push_swap.h"
 
 int	main(int c, char **v)
 {
@@ -19,8 +19,8 @@ int	main(int c, char **v)
 	t_tab	tab;
 
 	tab = ft_parsing(c - 1, &v[1]);
-	a = ft_creat_stack_a(&tab);
-	b = NULL;
+	a = ft_creat_stack(&tab);
+	b = ft_creat_stack(NULL);
 	return (0);
 }
 

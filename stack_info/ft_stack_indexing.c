@@ -6,11 +6,11 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 11:25:30 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/23 08:09:30 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 10:09:48 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../ft_push_swap.h"
 
 void	ft_stack_indexing(t_head *head)
 {
@@ -36,7 +36,7 @@ static void	ft_quick_sort(int *tab, int start, int end)
 	axis = tab[start + (end - start) / 2];
 	i = start - 1;
 	j = end + 1;
-	while (1)
+	while (TRUE)
 	{
 		while (tab[++i] < axis)
 			;

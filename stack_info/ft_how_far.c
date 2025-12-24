@@ -6,11 +6,11 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 12:27:48 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/22 17:53:12 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 10:09:52 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../ft_push_swap.h"
 
 void	ft_calculate_far(t_stack *stack)
 {

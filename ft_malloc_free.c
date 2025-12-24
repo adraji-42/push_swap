@@ -6,11 +6,11 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 14:10:37 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/22 15:38:11 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/24 10:09:14 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_push_swap.h"
 
 static t_list	**get_list(void)
 {
