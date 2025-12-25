@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 16:38:40 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/25 10:30:02 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/25 10:46:34 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,5 @@ void	ft_sort_prep(t_stack *a, t_stack *b)
 {
 	if (ft_is_rev_sorted(a))
 		ft_sort_descending(a, b);
-	// if (a->size == 3)
-	// 	ft_sort_3(a);
-	// if (a->size <= 5)
-	// 	ft_sort_5(a, b);
-	else
-		ft_sorting(a, b);
+	ft_sorting(a, b);
 }
