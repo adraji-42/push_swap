@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 12:58:55 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 16:38:54 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/25 10:19:38 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static t_array	*ft_fill_array(char *joined)
 {
 	int			i;
 	int			j;
-	t_ilimits	num;
 	t_array		*array;
 
 	i = 0;
@@ -53,10 +52,7 @@ static t_array	*ft_fill_array(char *joined)
 			i++;
 		if (!joined[i])
 			break ;
-		num = ft_atoi_ilimit(&joined[i]);
-		if (num.overflow)
-			exit(ft_cleanup_memory(ft_print_generic_error));
-		array->values[j++] = num.num;
+		array->values[j++] = ft_atoi_ilimit(&joined[i]);
 		if (ft_is_signe(joined[i]))
 			i++;
 		while (ft_isdigit(joined[i]))
@@ -68,18 +64,16 @@ static t_array	*ft_fill_array(char *joined)
 static void	ft_check_duplicates(t_array *array)
 {
 	int	i;
-	int	j;
+	int	*tmp;
 
 	i = 0;
-	while (i < array->size)
+	tmp = ft_safe_malloc(sizeof(int) * array->size);
+	ft_memcpy(tmp, array->values, sizeof(int) * array->size);
+	ft_quick_sort(tmp, 0, array->size - 1);
+	while (i < array->size - 1)
 	{
-		j = i + 1;
-		while (j < array->size)
-		{
-			if (array->values[i] == array->values[j])
-				exit(ft_cleanup_memory(ft_print_generic_error));
-			j++;
-		}
+		if (tmp[i] == tmp[i + 1])
+			exit(ft_cleanup_memory(ft_print_generic_error));
 		i++;
 	}
 }

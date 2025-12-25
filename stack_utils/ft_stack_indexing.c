@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 11:25:30 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 16:38:32 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/25 10:38:00 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_set_stack_indices(t_node *top)
 	}
 }
 
-static void	ft_quick_sort(int *tab, int start, int end)
+void	ft_quick_sort(int *tab, int start, int end)
 {
 	int	i;
 	int	j;

@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 11:59:56 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 16:39:10 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/25 08:43:58 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static void	ft_reverse_rotate(t_stack *stack)
 	last->prev = NULL;
 	stack->top->prev = last;
 	stack->top = last;
+	ft_set_stack_indices(stack->top);
+	ft_calculate_node_distances(stack);
 }
 
 void	ft_rra(t_stack *a)

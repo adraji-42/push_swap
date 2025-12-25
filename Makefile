@@ -8,6 +8,7 @@ LIB_DIR			= libftprintf
 OPS_DIR			= operations
 PARS_DIR		= parsing
 STK_DIR			= stack_utils
+SORT_DIR		= sorting
 
 LIBFTPRINTF		= $(LIB_DIR)/libftprintf.a
 
@@ -29,7 +30,9 @@ PARS_FILES		= $(PARS_DIR)/ft_atoi_ilimit.c \
 STK_FILES		= $(STK_DIR)/ft_stack_analysis.c \
 				  $(STK_DIR)/ft_stack_indexing.c
 
-SRCS			= $(MAIN_FILES) $(OPS_FILES) $(PARS_FILES) $(STK_FILES)
+SORT_FILES		= $(SORT_DIR)/ft_sort_prep.c
+
+SRCS			= $(MAIN_FILES) $(OPS_FILES) $(PARS_FILES) $(STK_FILES) $(SORT_FILES)
 OBJS			= $(SRCS:.c=.o)
 
 # --- RULES ---

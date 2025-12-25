@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 08:09:03 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 16:39:14 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/25 08:43:42 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ static void	ft_push(t_stack *src, t_stack *dest)
 	dest->top->prev = NULL;
 	src->size--;
 	dest->size++;
+	ft_set_stack_indices(src->top);
+	ft_set_stack_indices(dest->top);
+	ft_calculate_node_distances(src);
+	ft_calculate_node_distances(dest);
 }
 
 void	ft_pa(t_stack *a, t_stack *b)

@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 10:11:46 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 16:39:04 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/25 08:44:13 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static void	ft_swap(t_stack *stack)
 	second->prev = NULL;
 	first->prev = second;
 	stack->top = second;
+	ft_set_stack_indices(stack->top);
+	ft_calculate_node_distances(stack);
 }
 
 void	ft_sa(t_stack *a)

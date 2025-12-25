@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 10:15:24 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 16:39:07 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/25 08:45:45 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_rotate(t_stack *stack)
 	t_node	*first;
 	t_node	*last;
 
-	if (!stack->top || stack->size < 2)
+	if (!stack || !stack->top || stack->size < 2)
 		return ;
 	first = stack->top;
 	last = stack->top;
@@ -28,6 +28,8 @@ static void	ft_rotate(t_stack *stack)
 	last->next = first;
 	first->prev = last;
 	first->next = NULL;
+	ft_set_stack_indices(stack->top);
+	ft_calculate_node_distances(stack);
 }
 
 void	ft_ra(t_stack *a)

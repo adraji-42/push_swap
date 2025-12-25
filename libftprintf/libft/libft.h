@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 07:49:33 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/24 16:41:18 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/25 09:10:49 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,12 @@
 
 # define PLUS 1
 # define MINUS -1
-
-// --- ENUMERATIONS ---
-
-// Simple boolean type for logic checks 
-typedef enum e_bool
-{
-	FALSE = 0,
-	TRUE = 1
-}	t_bool;
+# define TRUE 1
+# define FALSE 0
 
 // --- TYPEDEF & STRUCT ---
 typedef char	t_signe;
+typedef char	t_bool;
 
 //	struct:
 typedef struct s_list
