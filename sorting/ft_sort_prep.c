@@ -6,11 +6,11 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 16:38:40 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/25 10:46:34 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/26 11:00:54 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_push_swap.h"
+#include "ft_sort_utils.h"
 
 static t_bool	ft_is_rev_sorted(t_stack *stack)
 {
