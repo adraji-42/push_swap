@@ -30,7 +30,9 @@ PARS_FILES		= $(PARS_DIR)/ft_atoi_ilimit.c \
 STK_FILES		= $(STK_DIR)/ft_stack_analysis.c \
 				  $(STK_DIR)/ft_stack_indexing.c
 
-SORT_FILES		= $(SORT_DIR)/ft_sort_prep.c
+SORT_FILES		= $(SORT_DIR)/ft_sort_prep.c \
+				  $(SORT_DIR)/ft_sorting.c \
+				  $(SORT_DIR)/ft_best_pb.c
 
 SRCS			= $(MAIN_FILES) $(OPS_FILES) $(PARS_FILES) $(STK_FILES) $(SORT_FILES)
 OBJS			= $(SRCS:.c=.o)

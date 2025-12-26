@@ -6,12 +6,12 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 10:49:04 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/25 08:10:19 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/26 12:18:09 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef FT_PUSH_SWAP_H
+# define FT_PUSH_SWAP_H
 
 // --- REQUIRED LIBRARIES ---
 
@@ -24,7 +24,6 @@
 # define FAILED 1
 # define SUCCESS 0
 
-
 // t_array: Stores the initial parsed integers before building the stacks.
 // values: Pointer to the integer array.
 // size: Number of elements in the array.
@@ -34,7 +33,6 @@ typedef struct s_array
 	int	*values;
 	int	size;
 }	t_array;
-
 
 // t_node: Doubly linked list node representing an element in the stack.
 // value: The actual integer value.
@@ -53,7 +51,6 @@ typedef struct s_node
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
-
 
 // t_stack: Wrapper for the stack tracking the top node and current size.
 // top: Pointer to the top-most node (first element).
@@ -102,5 +99,6 @@ void	ft_rrr(t_stack *a, t_stack *b);
 // --- SORTING FUNCTION ---
 
 void	ft_sort_prep(t_stack *a, t_stack *b);
+void	ft_sorting(t_stack *a, t_stack *b);
 
 #endif
