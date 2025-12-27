@@ -1,6 +1,6 @@
 NAME			= push_swap
 CC				= cc
-CFLAGS			= -g -Wall -Wextra -Werror
+CFLAGS			= -Wall -Wextra -Werror -g
 RM				= rm -f
 
 # --- DIRECTORIES ---
@@ -11,6 +11,12 @@ STK_DIR			= stack_utils
 SORT_DIR		= sorting
 
 LIBFTPRINTF		= $(LIB_DIR)/libftprintf.a
+
+# --- HEADER FILES ---
+# Including all headers to trigger re-compilation on changes
+HEADERS			= ft_push_swap.h \
+				  $(PARS_DIR)/ft_parsing.h \
+				  $(SORT_DIR)/ft_sort_utils.h \
 
 # --- SOURCE FILES ---
 MAIN_FILES		= ft_mem_manager.c \
@@ -41,15 +47,19 @@ OBJS			= $(SRCS:.c=.o)
 
 all:			$(NAME)
 
+# Link the final executable
 $(NAME):		$(OBJS) $(LIBFTPRINTF)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFTPRINTF) -o $(NAME)
 
-$(LIBFTPRINTF):
+# The 'force' rule ensures that the sub-Makefile is always checked
+$(LIBFTPRINTF):	force
 	$(MAKE) -C $(LIB_DIR)
 
-%.o: %.c
+# Compilation rule for object files
+%.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# Clean rules
 clean:
 	$(RM) $(OBJS)
 	$(MAKE) -C $(LIB_DIR) clean
@@ -60,4 +70,7 @@ fclean:			clean
 
 re:				fclean all
 
-.PHONY:			all clean fclean re
+# Rule to force checking the library directory
+force:
+
+.PHONY:	clean force
